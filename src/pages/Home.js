@@ -1,4 +1,5 @@
-import supabase from '../config/supabaseClient'
+import SmoothieCart from '../components/SmoothieCard';
+import supabase from '../config/supabaseClient';
 import { useEffect, useState } from 'react';
 
 const Home = () => {
@@ -7,7 +8,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchSmoothies = async () => {
-      const { data, error } = await supabase.from('smoothies').select();
+      const { data, error } = await supabase.from('abc').select();
 
       if (error) {
         setFetchError('Could not fetch smoothies');
@@ -16,7 +17,6 @@ const Home = () => {
       }
       if (data) {
         console.log(data);
-        
         setSmoothies(data);
         setFetchError(null);
       }
@@ -30,9 +30,12 @@ const Home = () => {
       {fetchError && <p>{fetchError}</p>}
       {smoothies && (
         <div className="smoothies">
-          {smoothies.map((smoothie) => (
-            <p key={smoothie.id}>{smoothie.title}</p>
-          ))}
+          {/* order-by buttons */}
+          <div className="smoothie-grid">
+            {smoothies.map((smoothie) => (
+              <SmoothieCart key={smoothie.id} smoothie={smoothie} />
+            ))}
+          </div>
         </div>
       )}
     </div>
