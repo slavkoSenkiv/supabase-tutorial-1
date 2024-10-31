@@ -16,7 +16,6 @@ const Home = () => {
         console.log(error);
       }
       if (data) {
-        console.log(data);
         setSmoothies(data);
         setFetchError(null);
       }
