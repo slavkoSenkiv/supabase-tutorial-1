@@ -1,4 +1,3 @@
-// Supabase Tutorial #3 - Fetching Data
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 
 // pages
