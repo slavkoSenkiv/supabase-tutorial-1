@@ -63,7 +63,7 @@ const Create = () => {
         />
 
         <button>
-          <i className="material-icons">check</i>
+          <i className="material-icons">save</i>
           Create Smoothie Recipe
         </button>
 
